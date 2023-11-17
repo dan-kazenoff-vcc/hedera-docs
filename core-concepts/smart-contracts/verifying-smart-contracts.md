@@ -1,6 +1,6 @@
 # Verifying Smart Contracts (Beta)
 
-Smart contract verification is the process of verifying that the smart contract bytecode uploaded to the network matches the expected smart contract source files. Verification is _not_ required for contracts that are deployed on the Hedera but it is best practice and essential to maintaining the contract's security and integrity by identifying vulnerabilities that could be exploited, as smart contracts are immutable once deployed. It also enables transparency and builds trust within the user community by proving that the deployed bytecode matches the contract's original source code.&#x20;
+Smart contract verification is the process of verifying that the smart contract bytecode uploaded to the network matches the expected smart contract source files. Verification is _not_ required for contracts that are deployed on the Hedera but it is best practice and essential to maintaining the contract's security and integrity by identifying vulnerabilities that could be exploited, as smart contracts are immutable once deployed. It also enables transparency and builds trust within the user community by proving that the deployed bytecode matches the contract's original source code.
 
 To initiate verification, you can use a community-hosted Hedera Mirror Node Explorer, like [HashScan](https://hashscan.io/) ([Arkhia](https://explorer.arkhia.io/) and [Dragon Glass](https://app.dragonglass.me/) do not currently support this feature), that integrates with [Sourcify](../../support-and-community/glossary.md#sourcify): A Solidity source code and metadata verification tool. Once you upload your files to the verification tool, Sourcify recompiles the submitted source code and metadata files to check them against the deployed bytecode. If a match is found, the contract's verification status is updated to either a [_<mark style="color:green;">Full (Perfect) Match</mark>_](https://docs.sourcify.dev/docs/full-vs-partial-match/#full-perfect-matches) or a [_<mark style="color:green;">Partial</mark>_ ](https://docs.sourcify.dev/docs/full-vs-partial-match/#partial-matches)_<mark style="color:green;">Match.</mark>_
 
@@ -12,11 +12,11 @@ The verification status is then publicly available across all community-hosted H
 
 For verification, you will need the following items:
 
-**➡** [**Smart Contract Source Code**](verifying-smart-contracts-beta.md#smart-contract-source-code)
+**➡** [**Smart Contract Source Code**](verifying-smart-contracts.md#smart-contract-source-code)
 
-**➡** [**The Metadata File**](verifying-smart-contracts-beta.md#the-metadata-file)
+**➡** [**The Metadata File**](verifying-smart-contracts.md#the-metadata-file)
 
-**➡** [**Deployed Smart Contract Address**](verifying-smart-contracts-beta.md#deployed-smart-contract-address)
+**➡** [**Deployed Smart Contract Address**](verifying-smart-contracts.md#deployed-smart-contract-address)
 
 ***
 
@@ -61,7 +61,7 @@ contract HelloWorld {
 
 ## The Metadata File
 
-When you compile a Solidity smart contract, it generates a JSON metadata file. This file contains settings used when the smart contract was originally compiled. These settings can include the compiler version, optimization details, and more. The metadata file is crucial for ensuring that the bytecode generated during verification matches the deployed bytecode. See Sourcify's Metadata documentation [here](https://docs.sourcify.dev/docs/metadata/#metadata).&#x20;
+When you compile a Solidity smart contract, it generates a JSON metadata file. This file contains settings used when the smart contract was originally compiled. These settings can include the compiler version, optimization details, and more. The metadata file is crucial for ensuring that the bytecode generated during verification matches the deployed bytecode. See Sourcify's Metadata documentation [here](https://docs.sourcify.dev/docs/metadata/#metadata).
 
 You have options for generating the metadata file. The recommended skill levels for each option are in parentheses. Choose the option that best fits your experience with smart contracts:
 
@@ -69,9 +69,9 @@ You have options for generating the metadata file. The recommended skill levels 
 
 <summary>Remix IDE (beginner)</summary>
 
-To create a metadata file in Remix, compile your smart contract and the compiled artifacts will be saved in the `artifacts/` directory and the `<dynamic_hash.json` metadata file will be under `artifacts/build-info` and used for verification. Alternatively, you can copy and paste it from the Solidity compiler tab. Please see the image below.&#x20;
+To create a metadata file in Remix, compile your smart contract and the compiled artifacts will be saved in the `artifacts/` directory and the `<dynamic_hash.json` metadata file will be under `artifacts/build-info` and used for verification. Alternatively, you can copy and paste it from the Solidity compiler tab. Please see the image below.
 
-![](<../../.gitbook/assets/remix metadata.png>)
+<img src="../../.gitbook/assets/remix metadata.png" alt="" data-size="original">
 
 See the Remix IDE docs for more detailed documentation [here](https://remix-ide.readthedocs.io/en/latest/contract\_metadata.html).
 
@@ -83,7 +83,7 @@ See the Remix IDE docs for more detailed documentation [here](https://remix-ide.
 
 <summary>Hardhat (intermediate)</summary>
 
-To create the `.json` metadata file with Hardhat, compile the contract using the `npx hardhat compile` command. The compiled artifacts will be saved in the `artifacts/` directory and the `<dynamic_hash>.json` metadata file will be under `artifacts/build-info` and used for verification. See Sourcify Hardhat metadata [here](https://docs.sourcify.dev/docs/metadata/#hardhat).&#x20;
+To create the `.json` metadata file with Hardhat, compile the contract using the `npx hardhat compile` command. The compiled artifacts will be saved in the `artifacts/` directory and the `<dynamic_hash>.json` metadata file will be under `artifacts/build-info` and used for verification. See Sourcify Hardhat metadata [here](https://docs.sourcify.dev/docs/metadata/#hardhat).
 
 <img src="../../.gitbook/assets/hardhat contract artifacts.png" alt="" data-size="original">
 
@@ -93,7 +93,7 @@ To create the `.json` metadata file with Hardhat, compile the contract using the
 
 <summary><strong>Solidity compiler (advanced)</strong></summary>
 
-You can pass the `--metadata` flag to the Solidity command line compiler to get the metadata output printed.&#x20;
+You can pass the `--metadata` flag to the Solidity command line compiler to get the metadata output printed.
 
 ```
 solc --metadata contracts/HelloWorld.sol
@@ -163,8 +163,6 @@ An example metadata file for the `HelloWorld` smart contract:
 }
 ```
 
-
-
 ***
 
 ## Deployed Smart Contract Address
@@ -197,7 +195,7 @@ Learn how to verify your smart contract:
 
 It's important to note that multiple instances of Sourcify do exist, tailored to the specific needs of different networks. Hedera runs an independent instance of Sourcify, distinct from the public-facing Sourcify.dev instances like Etherscan and other Etherscan clones.
 
-Running an independent instance of Sourcify allows Hedera to have more control over the verification process, tailoring it to the custom needs of the Hedera ecosystem. For instance, after a testnet reset, Hedera requires the ability to reset testnet smart contract verifications - something Sourcify.dev cannot accommodate.&#x20;
+Running an independent instance of Sourcify allows Hedera to have more control over the verification process, tailoring it to the custom needs of the Hedera ecosystem. For instance, after a testnet reset, Hedera requires the ability to reset testnet smart contract verifications - something Sourcify.dev cannot accommodate.
 
 > _**Verified Smart Contracts Testnet Reset:** When the Hedera Testnet is reset, the contract must be redeployed and verified. The contract will receive a new contract EVM address and contract ID. The smart contract will need to be verified using the new addresses._
 

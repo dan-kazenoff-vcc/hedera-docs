@@ -25,7 +25,7 @@ Verifying smart contracts helps ensure the deployed bytecode matches the expecte
 
 ***
 
-## Prerequisites&#x20;
+## Prerequisites
 
 * Solidity source code file of the deployed smart contract.
 * Solidity JSON (metadata) file of the deployed smart contract.
@@ -35,7 +35,7 @@ Verifying smart contracts helps ensure the deployed bytecode matches the expecte
 
 ## Step 1: Find the Contract on HashScan
 
-Open a web browser and navigate to [HashScan](https://hashscan.io/). Make sure you are on the correct Hedera network (Mainnet, Testnet, or Previewnet), and search for the deployed contract address in the search bar at the top of the page. Scroll to the _**Contract Details**_ section and click on _**Verify Contract**_. This will take you to the HashScan Smart Contract Verifier page in a new browser tab.&#x20;
+Open a web browser and navigate to [HashScan](https://hashscan.io/). Make sure you are on the correct Hedera network (Mainnet, Testnet, or Previewnet), and search for the deployed contract address in the search bar at the top of the page. Scroll to the _**Contract Details**_ section and click on _**Verify Contract**_. This will take you to the HashScan Smart Contract Verifier page in a new browser tab.
 
 <figure><img src="../../.gitbook/assets/contract hashscan details.png" alt=""><figcaption></figcaption></figure>
 
@@ -43,7 +43,7 @@ Open a web browser and navigate to [HashScan](https://hashscan.io/). Make sure y
 
 ## Step 2: Import Your Files
 
-Import the Solidity JSON file once you're on the HashScan Smart Contract Verifier page. The `.json` [metadata file](../../core-concepts/smart-contracts/verifying-smart-contracts-beta.md#the-metadata-file) can be found under `artifacts/build-info` in your Hardhat project repository. The file usually has a name correlating with your smart contract and a hash value to differentiate it from other compilations. For example, `HelloWorld.json`.
+Import the Solidity JSON file once you're on the HashScan Smart Contract Verifier page. The `.json` [metadata file](../../core-concepts/smart-contracts/verifying-smart-contracts.md#the-metadata-file) can be found under `artifacts/build-info` in your Hardhat project repository. The file usually has a name correlating with your smart contract and a hash value to differentiate it from other compilations. For example, `HelloWorld.json`.
 
 <figure><img src="../../.gitbook/assets/verifier.png" alt=""><figcaption><p>HashScan Smart Contract Verifier Interface</p></figcaption></figure>
 
@@ -68,7 +68,7 @@ The verification process will return either a [_<mark style="color:green;">Full 
 
 <figure><img src="../../.gitbook/assets/helloworld perfect match.png" alt="" width="563"><figcaption></figcaption></figure>
 
-To learn more about each verification match status, head over to the official Sourcify documentation [here](https://docs.sourcify.dev/docs/full-vs-partial-match/).&#x20;
+To learn more about each verification match status, head over to the official Sourcify documentation [here](https://docs.sourcify.dev/docs/full-vs-partial-match/).
 
 ***
 
@@ -94,6 +94,6 @@ Once you click _**View Contract**_, you'll be directed to the Contract Lookup pa
 
 **➡** [**Sourcify Documentation**](https://docs.sourcify.dev/docs/intro)
 
-**➡** [**Smart Contract Documentation**](../../core-concepts/smart-contracts/verifying-smart-contracts-beta.md)
+**➡** [**Smart Contract Documentation**](../../core-concepts/smart-contracts/verifying-smart-contracts.md)
 
 <table data-card-size="large" data-view="cards"><thead><tr><th align="center"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td align="center"><p>Writer: Krystal, Technical Writer</p><p><a href="https://github.com/theekrystallee">GitHub</a> | <a href="https://hashnode.com/@theekrystallee">Hashnode</a></p></td><td><a href="https://hashnode.com/@theekrystallee">https://hashnode.com/@theekrystallee</a></td></tr><tr><td align="center"><p>Editor: Nana, Sr. Software Manager</p><p><a href="https://github.com/Nana-EC">GitHub</a> | <a href="https://www.linkedin.com/in/nconduah/">LinkedIn</a></p></td><td><a href="https://www.linkedin.com/in/nconduah/">https://www.linkedin.com/in/nconduah/</a></td></tr></tbody></table>
